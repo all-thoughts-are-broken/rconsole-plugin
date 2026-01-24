@@ -168,7 +168,7 @@ export class tools extends plugin {
                     fnc: "trans",
                 },
                 {
-                    reg: "(v.douyin.com|live.douyin.com|www.douyin.com/video|www.douyin.com/jingxuan|www.douyin.com/discover)",
+                    reg: "((v|live).douyin.com|webcast.amemv.com|www.douyin.com/(video|note|live|share|jingxuan|discover))",
                     fnc: "douyin",
                 },
                 {
@@ -425,7 +425,7 @@ export class tools extends plugin {
             logger.info(`[R插件][全局解析控制] ${RESOLVE_CONTROLLER_NAME_ENUM.douyin} 已拦截`);
             return false;
         }
-        const urlRex = /(http:\/\/|https:\/\/)((v|live).douyin.com\/[A-Za-z\d._?%&+\-=\/#]*|www.douyin.com\/video\/[0-9]+|www.douyin.com\/(jingxuan|discover)\?[A-Za-z\d._?%&+\-=\/#]*modal_id=[0-9]+[A-Za-z\d._?%&+\-=\/#]*)/;
+        const urlRex = /(http:\/\/|https:\/\/)((v|live).douyin.com\/[A-Za-z\d._?%&+\-=\/#]*|webcast.amemv.com\/[A-Za-z\d._?%&+\-=\/#]*|www.douyin.com\/((video|note|live)\/[0-9]+|share\/slides\/[0-9]+|(jingxuan|discover)\?[A-Za-z\d._?%&+\-=\/#]*modal_id=[0-9]+[A-Za-z\d._?%&+\-=\/#]*))/;
         // 检测无效链接，例如：v.douyin.com，静默忽略
         if (!urlRex.test(e.msg)) {
             return false;
